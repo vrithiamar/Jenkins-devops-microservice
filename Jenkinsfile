@@ -3,4 +3,3 @@ node {
 		echo "Test"
 		echo "Integration test"
 	}
-}
