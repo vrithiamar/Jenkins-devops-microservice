@@ -10,7 +10,7 @@ pipeline {
 	agent { 
 		docker { 
 			image 'maven:3.9.11'
-			args '-v /var/jenkins_home:/var/jenkins_home'
+			args '-u root -v /var/jenkins_home:/var/jenkins_home'
 			}
 		}
 	stages {
