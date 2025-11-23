@@ -7,7 +7,12 @@
 //Declarative
 pipeline {
 	//agent any
-	agent { docker { image 'maven:3.9.11'} }
+	agent { 
+		docker { 
+			image 'maven:3.9.11'
+			args '-v /var/jenkins_home:/var/jenkins_home'
+			}
+		}
 	stages {
 		stage('Build') {
 			steps {
