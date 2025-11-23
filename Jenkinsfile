@@ -9,15 +9,15 @@ pipeline {
 	//agent any
 	agent { 
 		docker { 
-			image 'maven:3.9.11'
-			args '-u root -v /var/jenkins_home:/var/jenkins_home'
+			image 'maven:3.9.6-eclipse-temurin-17'
+			args '-v $HOME/.m2:/root/.m2'
 			}
 		}
 	stages {
 		stage('Build') {
 			steps {
-				sh 'mvn --version'
-				echo "Build"
+				sh 'mvn -version'
+                sh 'mvn -B clean package'
 			}
 		}
 		stage('Test') {
