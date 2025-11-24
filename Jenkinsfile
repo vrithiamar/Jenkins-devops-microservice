@@ -36,19 +36,19 @@ pipeline {
 		stage('Compile')
 		{
 			steps {
-				sh "mvn clean compile"
+				sh "mvn -Dmaven.repo.local=/tmp/.m2 clean compile"
 			}
 		}
 
         stage('Test') {
             steps {
-                sh "mvn test"
+                sh "mvn -Dmaven.repo.local=/tmp/.m2 test"
             }
         }
 
         stage('Integration Test') {
             steps {
-                sh "mvn failsafe:integration-test failsafe:verify"
+                sh "mvn -Dmaven.repo.local=/tmp/.m2 failsafe:integration-test failsafe:verify"
             }
         }
     }
