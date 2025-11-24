@@ -13,6 +13,7 @@ pipeline {
 	environment {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
+		javaHome  = tool 'JDK11'
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 	}
 
@@ -32,6 +33,12 @@ pipeline {
 				echo "Build URL - $env.BUILD_URL"
             }
         }
+		stage ('Build info') {
+			steps {
+				sh 'java -version'
+				sh 'mvn -version'
+			}
+		}
 		
 		stage('Compile')
 		{
