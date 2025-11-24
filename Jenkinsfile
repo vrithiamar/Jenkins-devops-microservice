@@ -14,11 +14,7 @@ pipeline {
         stage('Build') {
        
             steps {
-<<<<<<< HEAD
                 sh 'mvn --version'
-=======
-                echo "mvn --version"
->>>>>>> f01d1340e024d24f22d759f2d47da44b080df8e5
                 echo "Build"
             }
         }
