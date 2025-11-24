@@ -6,20 +6,16 @@
 
 //Declarative
 pipeline {
-    agent none
+
+    agent { docker { image 'maven:3.6.3'} }
 
     stages {
 
         stage('Build') {
-            agent {
-                docker {
-                    image 'maven:3.9.11'
-                    args '-v $HOME/.m2:/root/.m2'
-                }
-            }
+       
             steps {
-                sh 'mvn -version'
-                sh 'mvn -B clean package'
+                echo "mvn --version"
+                echo "Build"
             }
         }
 
