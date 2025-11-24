@@ -13,8 +13,8 @@ pipeline {
 	environment {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
-		
-		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+		JAVA_HOME = "/usr/lib/jvm/temurin-17-jdk-amd64"
+		PATH = "${JAVA_HOME}/bin:${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
 	}
 
     stages {
